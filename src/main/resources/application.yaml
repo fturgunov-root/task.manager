@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: task.manager
+  messages:
+    encoding: UTF-8
+  datasource:
+    url: jdbc:postgresql://localhost:5432/task_manager_ft?currentSchema=public
+    username: task_manager_ft
+    password: testpwd1
+    hikari:
+      minimumIdle: 2
+      maximumPoolSize: 10
+  jpa:
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true
+        default_schema: public
+        jdbc:
+          time_zone: UTC
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  liquibase:
+    enabled: true
+    user: ${spring.datasource.username}
+    change-log: classpath:db/liquibase-changelog.xml
+    default_schema: public
+    liquibase-schema: public
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  sql:
+    init:
+      encoding: UTF-8
+  servlet:
+    encoding:
+      charset: UTF-8
+
+
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+debug: false
+
+logging:
+  level:
+    org.apache.fop: ERROR
+    org.springframework:
+      jdbc: WARN
+      boot.autoconfigure: WARN
+    net.lbruun.springboot.preliquibase: WARN
+    liquibase: WARN
+    
+preliquibase:
+  enabled: true
