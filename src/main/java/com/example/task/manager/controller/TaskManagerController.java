@@ -7,6 +7,7 @@ import com.example.task.manager.controller.dto.TaskResponse;
 import com.example.task.manager.persistence.model.Task;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -24,14 +25,14 @@ public class TaskManagerController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Creates a new task")
-    public TaskResponse createTask(@RequestBody TaskCreateRequest request) {
+    public TaskResponse createTask(@Valid @RequestBody TaskCreateRequest request) {
         Task task = taskService.createTask(TaskConverter.convertToEntity(request));
         return TaskConverter.convertToResponse(task);
     }
 
     @GetMapping
     @Operation(summary = "Return list of tasks")
-    public List<TaskResponse> listRestaurants() {
+    public List<TaskResponse> listTasks() {
         List<Task> taskList = taskService.getAllTasks();
         return TaskConverter.from(taskList);
     }
