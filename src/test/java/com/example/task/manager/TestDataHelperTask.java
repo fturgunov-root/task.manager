@@ -4,7 +4,7 @@ import com.example.task.manager.common.JsonConverter;
 import com.example.task.manager.controller.dto.TaskResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import org.jetbrains.annotations.Nullable;
+import org.springframework.lang.Nullable;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;

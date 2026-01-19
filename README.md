@@ -6,11 +6,10 @@ This is a spring-boot application that provides simple task manager functionalit
 
 # Prerequisits
 This application uses Java 17 version (Amazon Coretto 17 etc)
-Docker-Desktop or Rancher Desktop. 
 
 # Installation
 
-To install and start database please use Docker scripts as described in file THIS_PROJECT_ROOT/docker/README_task_manager_ft.md
+No need to install.
 All tables will be created automatically during first start of the project.
 All test tables will be created automatically during build of the project.
 
